@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by
+Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="tstar_description"
+  xmlns:xacro="http://wiki.ros.org/xacro">
+  <xacro:include filename="$(find tstar_description)/urdf/zed_macro.urdf.xacro" />
+  <xacro:include filename="$(find tstar_description)/urdf/gq7.urdf.xacro" />
+  <link name="base_link">
+  </link>
+  <joint
+    name="body_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="body" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="body">
+    <inertial>
+      <origin
+        xyz="-0.089681 -0.00014605 0.0061639"
+        rpy="0 0 0" />
+      <mass
+        value="1.4127" />
+      <inertia
+        ixx="0.010495"
+        ixy="-2.1125E-07"
+        ixz="5.2422E-05"
+        iyy="0.0058471"
+        iyz="2.8936E-05"
+        izz="0.0055276" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tstar_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.62745 0.62745 0.62745 0.3" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tstar_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="gps">
+    <inertial>
+      <origin
+        xyz="-0.001201 5.9529E-11 0.0032397"
+        rpy="0 0 0" />
+      <mass
+        value="0.14843" />
+      <inertia
+        ixx="0.00014828"
+        ixy="-8.3456E-13"
+        ixz="-5.1472E-12"
+        iyy="0.0001662"
+        iyz="4.6266E-15"
+        izz="0.00030942" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tstar_description/meshes/gps.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.62745 0.62745 0.62745 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tstar_description/meshes/gps.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gps_joint"
+    type="fixed">
+    <origin
+      xyz="-0.1317 0 0.10656"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="gps" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <xacro:gq7 name="gq7" parent="base_link">
+    <origin xyz="0.2 0 0" rpy="0 0 0" />
+  </xacro:gq7>
+  <link
+    name="xwr">
+    <inertial>
+      <origin
+        xyz="-0.0042767 0.032257 -0.00033127"
+        rpy="0 0 0" />
+      <mass
+        value="0.0096479" />
+      <inertia
+        ixx="6.3667E-06"
+        ixy="-8.4812E-10"
+        ixz="3.6345E-10"
+        iyy="5.2726E-07"
+        iyz="3.1399E-10"
+        izz="5.9069E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tstar_description/meshes/xwr.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.83137 0.83137 0.83137 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tstar_description/meshes/xwr.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="xwr_joint"
+    type="fixed">
+    <origin
+      xyz="-0.011348 -2.4728E-05 0.086677"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="xwr" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <xacro:zed_camera name="zed" model="zedx">
+    <gnss_origin xyz="0 0 0" rpy="0 0 0" />
+  </xacro:zed_camera>
+  <joint
+    name="zed_joint"
+    type="fixed">
+    <origin
+      xyz="-0.014937 0 0.035558"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="zed_camera_link" />
+  </joint>
+  <link
+    name="thermal_left">
+    <inertial>
+      <origin
+        xyz="-4.6714E-05 0.00061959 -0.0064792"
+        rpy="0 0 0" />
+      <mass
+        value="0.011503" />
+      <inertia
+        ixx="6.5048E-07"
+        ixy="6.5869E-09"
+        ixz="-1.0899E-09"
+        iyy="5.6457E-07"
+        iyz="1.5137E-08"
+        izz="1.1158E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tstar_description/meshes/thermal_left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tstar_description/meshes/thermal_left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="thermal_left_joint"
+    type="fixed">
+    <origin
+      xyz="-0.008038 0.059997 0.019937"
+      rpy="-1.5708 -0.0030205 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="thermal_left" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="thermal_right">
+    <inertial>
+      <origin
+        xyz="-4.6713E-05 0.00061958 -0.0064792"
+        rpy="0 0 0" />
+      <mass
+        value="0.011503" />
+      <inertia
+        ixx="6.5048E-07"
+        ixy="6.5868E-09"
+        ixz="-1.0899E-09"
+        iyy="5.6457E-07"
+        iyz="1.5137E-08"
+        izz="1.1158E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tstar_description/meshes/thermal_right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tstar_description/meshes/thermal_right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="thermal_right_joint"
+    type="fixed">
+    <origin
+      xyz="-0.008038 -0.06 0.019937"
+      rpy="-1.5708 -0.0030205 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="thermal_right" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="event_left">
+    <inertial>
+      <origin
+        xyz="2.7484E-05 -6.1805E-07 0.00063206"
+        rpy="0 0 0" />
+      <mass
+        value="0.057116" />
+      <inertia
+        ixx="9.6193E-06"
+        ixy="-3.7814E-09"
+        ixz="8.4698E-09"
+        iyy="8.8005E-06"
+        iyz="1.7163E-09"
+        izz="7.7108E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tstar_description/meshes/event_left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tstar_description/meshes/event_left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="event_left_joint"
+    type="fixed">
+    <origin
+      xyz="-0.031698 0.059997 -0.019442"
+      rpy="-1.5708 0 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="event_left" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="event_right">
+    <inertial>
+      <origin
+        xyz="6.1805E-07 2.7484E-05 0.00063206"
+        rpy="0 0 0" />
+      <mass
+        value="0.057116" />
+      <inertia
+        ixx="8.8005E-06"
+        ixy="3.7814E-09"
+        ixz="-1.7163E-09"
+        iyy="9.6193E-06"
+        iyz="8.4698E-09"
+        izz="7.7108E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tstar_description/meshes/event_right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tstar_description/meshes/event_right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="event_right_joint"
+    type="fixed">
+    <origin
+      xyz="-0.031698 -0.059997 -0.019442"
+      rpy="-1.5708 0 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="event_right" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="os_dome">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tstar_description/meshes/os_dome.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tstar_description/meshes/os_dome.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="os_dome_joint"
+    type="fixed">
+    <origin
+      xyz="-0.009796 -1.6478E-05 -0.042413"
+      rpy="1.5708 1.0472 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="os_dome" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
