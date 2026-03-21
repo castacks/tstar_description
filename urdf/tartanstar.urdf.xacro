@@ -117,7 +117,9 @@ Stephen Brawner (brawner@gmail.com)
       xyz="0 0 0" />
   </joint>
   <xacro:gq7 name="gq7" parent="base_link">
-    <origin xyz="0.2 0 0" rpy="0 0 0" />
+    <origin
+      xyz="-0.0628690000000007 0 -0.000441597121919171"
+      rpy="3.14159265358979 1.5707963267949 0" />
   </xacro:gq7>
   <link
     name="xwr">
@@ -402,17 +404,17 @@ Stephen Brawner (brawner@gmail.com)
     name="os_dome">
     <inertial>
       <origin
-        xyz="0 0 0"
+        xyz="-0.00013409 -1.5874E-07 0.036791"
         rpy="0 0 0" />
       <mass
-        value="0" />
+        value="0.3582" />
       <inertia
-        ixx="0"
-        ixy="0"
-        ixz="0"
-        iyy="0"
-        iyz="0"
-        izz="0" />
+        ixx="0.0003054"
+        ixy="1.0202E-10"
+        ixz="-1.3429E-06"
+        iyy="0.00030467"
+        iyz="-2.0038E-09"
+        izz="0.00026185" />
     </inertial>
     <visual>
       <origin
@@ -425,7 +427,7 @@ Stephen Brawner (brawner@gmail.com)
       <material
         name="">
         <color
-          rgba="1 1 1 1" />
+          rgba="0.79216 0.81961 0.93333 1" />
       </material>
     </visual>
     <collision>
@@ -433,8 +435,8 @@ Stephen Brawner (brawner@gmail.com)
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://tstar_description/meshes/os_dome.STL" />
+        <mesh 
+            filename="package://tstar_description/meshes/os_dome.STL" />
       </geometry>
     </collision>
   </link>
@@ -442,7 +444,7 @@ Stephen Brawner (brawner@gmail.com)
     name="os_dome_joint"
     type="fixed">
     <origin
-      xyz="-0.009796 -1.6478E-05 -0.042413"
+      xyz="-0.05762 -1.6478E-05 -0.042413"
       rpy="1.5708 1.0472 1.5708" />
     <parent
       link="base_link" />
@@ -450,5 +452,31 @@ Stephen Brawner (brawner@gmail.com)
       link="os_dome" />
     <axis
       xyz="0 0 0" />
+  </joint>
+  <link name="os_dome_lidar" />
+  <!-- lidar_to_sensor_transform: Rz(pi), translation [0, 0, 47.824] mm -->
+  <joint
+    name="os_dome_lidar_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0.047824"
+      rpy="0 0 ${pi}" />
+    <parent
+      link="os_dome" />
+    <child
+      link="os_dome_lidar" />
+  </joint>
+  <link name="os_dome_imu" />
+  <!-- imu_to_sensor_transform: identity rotation, translation [-2.441, -9.725, 7.533] mm -->
+  <joint
+    name="os_dome_imu_joint"
+    type="fixed">
+    <origin
+      xyz="-0.002441 -0.009725 0.007533"
+      rpy="0 0 0" />
+    <parent
+      link="os_dome" />
+    <child
+      link="os_dome_imu" />
   </joint>
 </robot>
