@@ -4,10 +4,10 @@
   <name>tstar_description</name>
   <version>1.0.0</version>
   <description>
-    URDF Description package for TartanStar robot.
+    URDF Description package for TartanStar sensor rig.
     Contains configuration data, 3D models and launch files.
   </description>
-  <maintainer email="TODO@email.com">TODO</maintainer>
+  <maintainer email="juiteh@andrew.cmu.edu">Ray Huang</maintainer>
   <license>BSD</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
