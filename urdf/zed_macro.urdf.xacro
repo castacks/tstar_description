@@ -198,6 +198,14 @@
       </joint>
 
 <link name="${name}_left_camera_frame_optical"/>
+      <!-- IMU Link -->
+      <link name="${name}_imu_link" />
+      <joint name="${name}_imu_joint" type="fixed">
+        <parent link="${name}_left_camera_frame"/>
+        <child link="${name}_imu_link"/>
+        <origin xyz="0 -0.036 0" rpy="0.005998 -0.002006 0.001994" />
+      </joint>
+
       <joint name="${name}_left_camera_optical_joint" type="fixed">
         <origin xyz="0 0 0" rpy="-${M_PI/2} 0.0 -${M_PI/2}"/>
         <parent link="${name}_left_camera_frame"/>
