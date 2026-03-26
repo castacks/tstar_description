@@ -18,5 +18,8 @@ rerun = [
 [project.scripts]
 tstar-visualize = "tstar_description.visualize:main"
 
+[tool.setuptools.package-data]
+tstar_description = ["urdf/**", "meshes/**"]
+
 [tool.uv]
 package = true

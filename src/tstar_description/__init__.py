@@ -1,12 +1,14 @@
 from __future__ import annotations
 
+from importlib.resources import files
 from pathlib import Path
 from xml.etree import ElementTree
 
 import numpy as np
 from xacrodoc import XacroDoc
 
-_XACRO_PATH = Path(__file__).parents[2] / "urdf" / "tartanstar.urdf.xacro"
+_PKG_ROOT = Path(str(files("tstar_description")))
+_XACRO_PATH = _PKG_ROOT / "urdf" / "tartanstar.urdf.xacro"
 
 
 def _rpy_to_rot(roll: float, pitch: float, yaw: float) -> np.ndarray:

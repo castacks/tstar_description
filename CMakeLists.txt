@@ -4,7 +4,7 @@ project(tstar_description)
 find_package(ament_cmake REQUIRED)
 
 install(
-  DIRECTORY launch meshes urdf
+  DIRECTORY launch src/tstar_description/meshes src/tstar_description/urdf
   DESTINATION share/${PROJECT_NAME}
 )
 
