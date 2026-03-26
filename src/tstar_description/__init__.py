@@ -1,13 +1,12 @@
 from __future__ import annotations
 
-from importlib.resources import files
 from pathlib import Path
 from xml.etree import ElementTree
 
 import numpy as np
 from xacrodoc import XacroDoc
 
-_PKG_ROOT = Path(str(files("tstar_description")))
+_PKG_ROOT = Path(__file__).parent
 _XACRO_PATH = _PKG_ROOT / "urdf" / "tartanstar.urdf.xacro"
 
 
