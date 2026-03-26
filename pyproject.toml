@@ -1,0 +1,22 @@
+[project]
+name = "tstar_description"
+version = "1.0.0"
+description = "URDF Description package for TartanStar sensor rig. Contains configuration data, 3D models and launch files."
+requires-python = ">=3.12"
+license = { text = "MIT" }
+maintainers = [{ name = "Ray Huang", email = "juiteh@andrew.cmu.edu" }]
+dependencies = [
+    "numpy>=1.24",
+    "xacrodoc>=2.0",
+]
+
+[project.optional-dependencies]
+rerun = [
+    "rerun-sdk>=0.20",
+]
+
+[project.scripts]
+tstar-visualize = "tstar_description.visualize:main"
+
+[tool.uv]
+package = true
