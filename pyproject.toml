@@ -18,8 +18,20 @@ rerun = [
 [project.scripts]
 tstar-visualize = "tstar_description.visualize:main"
 
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
 [tool.setuptools.package-data]
-tstar_description = ["urdf/**", "meshes/**"]
+tstar_description = [
+    "urdf/*.xacro",
+    "urdf/include/*.xacro",
+    "meshes/*.STL",
+    "meshes/*.stl",
+]
 
 [tool.uv]
 package = true
