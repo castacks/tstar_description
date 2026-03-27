@@ -15,7 +15,7 @@
       </visual>
     </link>
 
-    <link name="${name}">
+    <link name="${name}_imu_link">
     </link>
 
     <!-- This joint handles the center of the GQ7, but measurements will not be produced WRT to this, it is just easier to place on robots -->
@@ -28,7 +28,7 @@
     <!-- This link contains the offset between the center of the GQ7 and the actual sensor origin. Measurements will be reported relative to this -->
     <joint name="${name}_joint" type="fixed">
       <parent link="${name}_center" />
-      <child link="${name}" />
+      <child link="${name}_imu_link" />
       <origin xyz="-0.0222 -0.015585 0.00737" rpy="0 0 0" />
     </joint>
   </xacro:macro>

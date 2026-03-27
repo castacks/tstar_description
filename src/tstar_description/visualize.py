@@ -78,6 +78,11 @@ def _log_frames(robot: dict) -> None:
             rr.Arrows3D(origins=origins, vectors=vectors, colors=colors),
             static=True,
         )
+        rr.log(
+            path + "/label",
+            rr.Points3D([[0, 0, 0]], labels=[link]),
+            static=True,
+        )
 
         info = links.get(link, {})
         mesh_path = info.get("mesh")
