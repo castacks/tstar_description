@@ -1,43 +1,21 @@
 # tstar_description
 
-URDF description package for the TartanStar sensor rig. Contains the xacro model, STL meshes, and a Python library for querying transforms.
+[URDF description package](https://github.com/castacks/tstar_description) for the TartanStar sensor rig. Contains the xacro model, STL meshes, and a Python library for querying transforms.
 
-![TartanStar](tstar.gif)
+<img src="tstar.png" width="600"/>
 
 ## Sensors
 
 | Link | Sensor |
 |------|--------|
 | `body` | Main chassis |
-| `gps` | GPS antenna |
-| `gq7` | MicroStrain GQ7 IMU/GNSS |
+| `gq7_*` | MicroStrain GQ7 IMU/GNSS |
 | `xwr` | mmWave radar (XWR) |
-| `zed_camera_link` | ZED X stereo camera |
-| `thermal_left` / `thermal_right` | Thermal cameras |
-| `event_left` / `event_right` | Event cameras |
-| `os_dome` / `os_dome_lidar` / `os_dome_imu` | Ouster dome LiDAR + IMU |
+| `zed_camera_*` | ZED X stereo camera |
+| `thermal_*` | Thermal cameras |
+| `event_*` | Event cameras |
+| `os_dome_*` | Ouster dome LiDAR + IMU |
 
-## ROS 2 Usage
-
-Launch the robot state publisher:
-
-```bash
-ros2 launch tstar_description robot_state.launch.py
-```
-
-Launch with RViz2 visualization:
-
-```bash
-ros2 launch tstar_description robot_state.launch.py rviz:=true
-```
-
-## Python API
-
-Install with [uv](https://github.com/astral-sh/uv):
-
-```bash
-uv sync
-```
 
 ### Load the URDF
 
@@ -63,20 +41,30 @@ T = get_transform("base_link", "zed_camera_link", sensor)
 
 ## Rerun Visualization
 
-Install with the rerun extra:
+Visualize URDF with rerun:
 
 ```bash
-uv sync --extra rerun
+uv run tstar-extrinsics
 ```
 
-Run the visualizer:
+Then open rerun with:
 
 ```bash
-uv run tstar-visualize
+rerun --connect
 ```
 
-Then connect with:
+## ROS 2 Usage
+
+install and build as ros2 [pkg](https://github.com/castacks/tstar_description) 
+
+Launch the robot state publisher:
 
 ```bash
-rerun rerun+grpc://...
+ros2 launch tstar_description robot_state.launch.py
+```
+
+Launch with RViz2 visualization:
+
+```bash
+ros2 launch tstar_description robot_state.launch.py rviz:=true
 ```

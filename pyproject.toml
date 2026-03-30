@@ -1,6 +1,6 @@
 [project]
 name = "tstar_description"
-version = "1.0.0"
+version = "0.1.0"
 description = "URDF Description package for TartanStar sensor rig. Contains configuration data, 3D models and launch files."
 requires-python = ">=3.12"
 license = { text = "MIT" }
@@ -16,7 +16,7 @@ rerun = [
 ]
 
 [project.scripts]
-tstar-visualize = "tstar_description.visualize:main"
+tstar-extrinsics = "tstar_description.visualize:main"
 
 [build-system]
 requires = ["setuptools>=68"]
